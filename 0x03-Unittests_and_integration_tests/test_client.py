@@ -104,8 +104,8 @@ def requests_get(*args, **kwargs):
         return MockResponse(TEST_PAYLOAD[0][1])
 
 
-@parameterized_class(
-    ('org_payload', 'repos_payload', 'expected_repos', 'apache2_repos'),
-    [(TEST_PAYLOAD[0][0], TEST_PAYLOAD[0][1], TEST_PAYLOAD[0][2],
-      TEST_PAYLOAD[0][3])]
-)
+# @parameterized_class(
+#     ('org_payload', 'repos_payload', 'expected_repos', 'apache2_repos'),
+#     [(TEST_PAYLOAD[0][0], TEST_PAYLOAD[0][1], TEST_PAYLOAD[0][2],
+#       TEST_PAYLOAD[0][3])]
+# )
