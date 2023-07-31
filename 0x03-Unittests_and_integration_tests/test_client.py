@@ -65,3 +65,18 @@ class TestGithubOrgClient(unittest.TestCase):
                 self.assertIn(mock_repo.return_value[idx]['name'], test_repo)
             mock_repo.assert_called_once()
             m.assert_called_once()
+
+    @parameterized.expand([
+        ({"license": {"key": "my_license"}}, "my_license", True),
+        ({"license": {"key": "other_license"}}, "my_license", False)
+    ])
+    def test_has_license(self, repo, license_key, expected):
+        """
+        Test GithubOrgClient's has_license method
+        Args:
+            repo (dict): dictionary
+            license_key (str): license in the repo dict
+        """
+        test_instance = GithubOrgClient('holberton')
+        license_available = test_instance.has_license(repo, license_key)
+        self.assertEqual(license_available, expected)
